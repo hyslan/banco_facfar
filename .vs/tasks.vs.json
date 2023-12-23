@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "tarefa-update_dados_excel",
+      "appliesTo": "update_dados_excel.cpp",
+      "type": "launch"
+    }
+  ]
+}
