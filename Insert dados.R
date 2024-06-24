@@ -62,7 +62,7 @@ conexao <- dbConnect(
   odbc::odbc(),
   .connection_string = paste0(
     "Driver={SQL Server};Server=10.66.9.46;Database=BD_ML;Trusted_Connection=yes;"))
-
+# --------------------------------------------------------
 # Sigla NOVA, apenas insert sem drop...
 # caminho <- list.files(
 #   "\\\\spo-leste60_fs\\FISCALIZAÇÃO\\FAC FAR\\BANCO DE DADOS ML\\OLM",
@@ -70,8 +70,9 @@ conexao <- dbConnect(
 
 
 # Arquivo atual
-# último arquivo -> 02/06/2024
-caminho <- "\\\\spo-leste60_fs\\FISCALIZAÇÃO\\FAC FAR\\BANCO DE DADOS ML\\OLM\\7 - 27 a 02.junho.24.xlsx"
+# último arquivo -> 17/06/2024
+# ------------------------------
+caminho <- "\\\\spo-leste60_fs\\FISCALIZAÇÃO\\FAC FAR\\BANCO DE DADOS ML\\OLM\\10 - 17 a 23.junho.24.xlsx"
 
 dt1 <- lapply(caminho, function(x) read_excel(x, sheet = 1)) |> bind_rows()
 dt2 <- lapply(caminho, function(x) read_excel(x, sheet = 2)) |> bind_rows()
@@ -115,6 +116,9 @@ dbWriteTable(conexao,
              overwrite = FALSE,
              append = TRUE,
 )
+
+
+# -----------------------------------------------------------
 
 ### Modelo antigo
 # Executa Procedure
