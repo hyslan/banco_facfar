@@ -71,8 +71,13 @@ conexao <- dbConnect(
 
 # Arquivo atual
 # último arquivo -> 17/06/2024
-# ------------------------------
-caminho <- "\\\\spo-leste60_fs\\FISCALIZAÇÃO\\FAC FAR\\BANCO DE DADOS ML\\OLM\\10 - 17 a 23.junho.24.xlsx"
+# -----------------------------------------------------------
+arquivo <- "11 - 24 a 26.junho.24.xlsx"
+caminho <- paste(
+  "\\\\spo-leste60_fs\\FISCALIZAÇÃO\\FAC FAR\\BANCO DE DADOS ML\\OLM\\",
+  arquivo, sep="")
+print("Path:")
+print(caminho)
 
 dt1 <- lapply(caminho, function(x) read_excel(x, sheet = 1)) |> bind_rows()
 dt2 <- lapply(caminho, function(x) read_excel(x, sheet = 2)) |> bind_rows()
@@ -117,7 +122,7 @@ dbWriteTable(conexao,
              append = TRUE,
 )
 
-
+print("Dados inseridos com sucesso!")
 # -----------------------------------------------------------
 
 ### Modelo antigo
